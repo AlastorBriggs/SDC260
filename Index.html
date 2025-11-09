@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="For my class   SDC260">
+    <meta name="description" content="For my class SDC260">
     <meta name="keywords" content="web development, portfolio, projects, coding">
     <meta name="author" content="Tevin Donegan">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <header>
@@ -16,10 +15,8 @@
         <p>Showcasing my projects for class</p>
     </header>
     
-  
     <nav>
         <ul>
-           
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -27,18 +24,66 @@
     </nav>
     
     <main>
-       
         <section id="about">
             <h2>About Me</h2>
             <p>Hello! I'm Tevin Donegan and I'm trying to upload my projects to showcase my skills for class.</p>
         </section>
         
-       
         <section id="projects">
             <h2>My Projects</h2>
-            <p>I'm a novice, but here are a few of my projects. </p>
+            <p>I'm a novice, but here are a few of my projects.</p>
+            
+          
+            <table>
+              
+                <caption>My Class Projects</caption>
+                
+                
+                <colgroup>
+                    <col class="project-name-col">
+                    <col class="project-desc-col">
+                    <col class="project-image-col">
+                </colgroup>
+                
+               
+                <thead>
+                    <tr>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Image Preview</th>
+                    </tr>
+                </thead>
+                
+                
+                <tbody>
+                    <tr>
+                        <td>Personal Portfolio Website</td>
+                        <td>My first responsive portfolio website built with HTML and CSS to showcase my projects and skills.</td>
+                        <td>
+                            <div class="image-placeholder">
+                                <span>Portfolio Screenshot</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Class Assignment Dashboard</td>
+                        <td>A simple dashboard to track class assignments, due dates, and completion status using basic JavaScript.</td>
+                        <td>
+                            <div class="image-placeholder">
+                                <span>Dashboard Preview</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                
+             
+                <tfoot>
+                    <tr>
+                        <td colspan="3">More projects will be added throughout the semester!</td>
+                    </tr>
+                </tfoot>
+            </table>
         </section>
-        
         
         <section id="contact">
             <h2>Contact Me</h2>
@@ -48,7 +93,6 @@
     
     <footer>
         <p>&copy; 2025 My Class Portfolio. All rights reserved.</p>
-     
     </footer>
 </body>
 </html>
