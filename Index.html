@@ -14,39 +14,36 @@
         <h1>Welcome to My Class Portfolio</h1>
         <p>Showcasing my projects for class</p>
     </header>
-    
+
     <nav>
         <ul class="nav-flex">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#media">Media Player</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    
+
     <main class="main-flex">
         <section id="about">
             <h2>About Me</h2>
             <p>Hello! I'm Tevin Donegan and I'm trying to upload my projects to showcase my skills for class.</p>
             <p>I'm currently learning web development and building my skills in HTML, CSS, and JavaScript.</p>
         </section>
-        
+
         <section id="projects">
             <h2>My Projects</h2>
             <p>I'm a novice, but here are a few of my projects.</p>
-            
-        
+
             <table>
-              
                 <caption>My Class Projects</caption>
-                
-               
+
                 <colgroup>
                     <col class="project-name-col">
                     <col class="project-desc-col">
                     <col class="project-image-col">
                 </colgroup>
-                
-                
+
                 <thead>
                     <tr>
                         <th scope="col">Project Name</th>
@@ -54,8 +51,7 @@
                         <th scope="col">Image Preview</th>
                     </tr>
                 </thead>
-                
-               
+
                 <tbody>
                     <tr>
                         <td>Personal Portfolio Website</td>
@@ -75,9 +71,17 @@
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td>Interactive Media Player</td>
+                        <td>A custom media player built with HTML, CSS, and JavaScript featuring playlists and controls.</td>
+                        <td>
+                            <div class="image-placeholder">
+                                <span>Player Interface</span>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
-                
-                
+
                 <tfoot>
                     <tr>
                         <td colspan="3">More projects will be added throughout the semester!</td>
@@ -85,39 +89,165 @@
                 </tfoot>
             </table>
         </section>
-        
+
+        <section id="media">
+            <h2>Media Player</h2>
+            <p>Enjoy this track from Spotify while browsing my portfolio.</p>
+
+            <div class="media-player">
+
+                <div class="spotify-embed">
+                    <iframe src="https://open.spotify.com/embed/track/1QrbZhFYlViXd60g130vw1?utm_source=generator&theme=0"
+                            width="100%"
+                            height="152"
+                            frameBorder="0"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"
+                            style="border-radius: 12px; margin-bottom: 2rem;">
+                    </iframe>
+                </div>
+
+           
+            </div>
+        </section>
+
         <section id="contact">
             <h2>Contact Me</h2>
-            <p>If you need to get in contact, then you may email me at my student email.</p>            
-          
+            <p>If you need to get in contact, then you may email me at my student email.</p>
+
             <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Your Name:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="email">Your Email:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="subject">Subject:</label>
                     <input type="text" id="subject" name="subject">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" rows="5"></textarea>
                 </div>
-                
+
                 <button type="submit">Send Message</button>
             </form>
         </section>
     </main>
-    
+
     <footer>
         <p>&copy; 2025 My Class Portfolio. All rights reserved.</p>
     </footer>
+
+    <script>document.addEventListener('DOMContentLoaded', function() {
+            const playBtn = document.getElementById('play-btn');
+            const progress = document.getElementById('song-progress');
+            const currentTime = document.getElementById('current-time');
+            const volumeSlider = document.getElementById('volume-slider');
+            const playlistItems = document.querySelectorAll('.playlist-item');
+
+            let isPlaying = false;
+            let currentProgress = 0;
+            let progressInterval;
+
+
+            const trackCovers = document.querySelectorAll('.track-cover');
+            trackCovers.forEach(cover => {
+                if (!cover.querySelector('img')) {
+                    cover.style.background = 'linear-gradient(135deg, #333399, #6666CC)';
+                    cover.style.display = 'flex';
+                    cover.style.alignItems = 'center';
+                    cover.style.justifyContent = 'center';
+                    cover.style.color = '#CCCCFF';
+                    cover.style.fontSize = '0.8rem';
+                    cover.innerHTML = 'Album Art';
+                }
+            });
+
+
+            playBtn.addEventListener('click', function() {
+                isPlaying = !isPlaying;
+                playBtn.textContent = isPlaying ? '⏸' : '▶';
+
+                if (isPlaying) {
+
+                    progressInterval = setInterval(() => {
+                        if (currentProgress < 100) {
+                            currentProgress += 0.5;
+                            progress.style.width = currentProgress + '%';
+
+
+                            const totalSeconds = 237;
+                            const currentSeconds = Math.floor((currentProgress / 100) * totalSeconds);
+                            const minutes = Math.floor(currentSeconds / 60);
+                            const seconds = currentSeconds % 60;
+                            currentTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                        } else {
+                            clearInterval(progressInterval);
+                            isPlaying = false;
+                            playBtn.textContent = '▶';
+                        }
+                    }, 1000);
+                } else {
+                    clearInterval(progressInterval);
+                }
+            });
+
+
+            volumeSlider.addEventListener('input', function() {
+                const volume = this.value;
+
+                console.log('Volume set to:', volume + '%');
+            });
+
+
+            playlistItems.forEach(item => {
+                item.addEventListener('click', function() {
+
+                    playlistItems.forEach(i => i.classList.remove('active'));
+
+                    this.classList.add('active');
+
+
+                    clearInterval(progressInterval);
+                    currentProgress = 0;
+                    progress.style.width = '0%';
+                    currentTime.textContent = '0:00';
+                    isPlaying = false;
+                    playBtn.textContent = '▶';
+
+
+                    if (this.querySelector('h5').textContent === 'Coming Soon') {
+                        alert('More tracks coming soon! Currently playing: Beyoncé - TEXAS HOLD \'EM');
+                    }
+                });
+            });
+
+
+            document.getElementById('rewind-btn').addEventListener('click', function() {
+                currentProgress = Math.max(0, currentProgress - 10);
+                progress.style.width = currentProgress + '%';
+            });
+
+            document.getElementById('forward-btn').addEventListener('click', function() {
+                currentProgress = Math.min(100, currentProgress + 10);
+                progress.style.width = currentProgress + '%';
+            });
+
+
+            document.querySelector('.progress-bar').addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const clickPosition = (e.clientX - rect.left) / rect.width;
+                currentProgress = clickPosition * 100;
+                progress.style.width = currentProgress + '%';
+            });
+        });</script>
 </body>
 </html>
