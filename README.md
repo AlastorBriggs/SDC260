@@ -1,40 +1,30 @@
-# SDC260
-for class SDC260 Tevin
-My Personal Website
-Overview
-Welcome to my personal website! This site serves as a portfolio to showcase my projects, skills, and interests. It is built using HTML5 and CSS3, and it is designed to be responsive across various devices.
+# <span style="color:#DC143C;"> SDC260</span>
+# <span style="color:#DC143C;">for class SDC260 Tevin</span>
+# <span style="color:#DC143C;">My Personal Website</span>
 
-Table of Contents
-Features
-Technologies Used
-Installation
-Usage
-Contributing
-License
-Features
-Responsive Design: The website adapts to different screen sizes.
-Clean Layout: Easy navigation with a structured layout.
-Interactive Elements: Includes buttons and links for user engagement.
-Technologies Used
-HTML5: For the structure of the website.
-CSS3: For styling and layout.
-JavaScript (optional): For any interactive features (if applicable).
-Installation
-To view this website locally, follow these steps:
+## Overview
+<span style="color:black;">Welcome to my personal website! This site serves as a portfolio to showcase my projects, skills, and interests. It is built using HTML5 and CSS3, and it is designed to be responsive across various devices.</span>
 
-Clone the repository:
-git clone https:/github.com/AlastorBriggs/SDC260.git
-Navigate to the project directory:
-cd SDC260
-Open the index.html file in your web browser.
-Usage
-Navigate through the website using the menu links.
-Explore different sections to see my projects and skills.
-Contributing
-If you'd like to contribute to this project, feel free to fork the repository and submit a pull request. Any suggestions or improvements are welcome!
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Features
+- <span style="color:black;">**Responsive Design**: The website adapts to different screen sizes.</span>
+- <span style="color:black;">**Clean Layout**: Easy navigation with a structured layout.</span>
+- <span style="color:black;">**Interactive Elements**: Includes buttons and links for user engagement.</span>
+
+## Technologies Used
+- <span style="color:black;">**HTML5**: For the structure of the website.</span>
+- <span style="color:black;">**CSS3**: For styling and layout.</span>
+- <span style="color:black;">**JavaScript** (optional): For any interactive features (if applicable).</span>
+
+## Installation
+<span style="color:black;">To view this website locally, follow these steps:</span>
+1. Clone the repository:
+   git clone https://github.com/AlastorBriggs/SDC260.gitfile for details.
 
 Contact
 For any inquiries, please contact my school email.
